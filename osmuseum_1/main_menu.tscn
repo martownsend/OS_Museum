@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjxh8ksvueqsd"]
+[gd_scene load_steps=20 format=3 uid="uid://bjxh8ksvueqsd"]
 
 [ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://tivchck3qra8" path="res://coll_object_1.gd" id="3_fu7sn"]
+[ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="5_glbon"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
 
@@ -38,6 +40,9 @@ albedo_texture = ExtResource("2_7vrkn")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix8l"]
 albedo_texture = ExtResource("2_7vrkn")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe12f"]
+albedo_texture = ExtResource("5_glbon")
+
 [node name="MainMenu" type="Node3D"]
 
 [node name="StaticFloor" type="StaticBody3D" parent="."]
@@ -54,7 +59,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_06t4h")
 environment = SubResource("Environment_rhts7")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, 0.0874419, 4.69831, 3.80068)
+transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, -0.0219558, 3.72625, 2.17996)
 
 [node name="StaticVitrine_1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
@@ -68,7 +73,7 @@ mesh = SubResource("BoxMesh_06t4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_glbon")
 
 [node name="MainDirectLight_1" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.972521, -0.0955335, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, 2.28413, 6.78458, 15.9323)
+transform = Transform3D(0.972521, -0.0955334, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, 4.73125, 0.75983, 5.65012)
 light_energy = 0.111
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
@@ -121,13 +126,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_jix8l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34829, 3.08012, -0.449033)
 
 [node name="CollObject_1" type="CollisionShape3D" parent="StaticObject_1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.222582, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.097563, 0)
 shape = SubResource("BoxShape3D_rhts7")
 script = ExtResource("3_fu7sn")
 
 [node name="MeshObject_1" type="MeshInstance3D" parent="StaticObject_1/CollObject_1"]
-transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, 0.0866711, 0.16247, 0)
-mesh = SubResource("BoxMesh_06t4h")
+transform = Transform3D(2.13885, -0.177422, -9.76698, -9.76435, 0.255609, -2.14291, 0.287672, 9.99516, -0.11857, 0.0866711, 0.0113533, 0)
+mesh = ExtResource("4_jix8l")
+surface_material_override/0 = SubResource("StandardMaterial3D_qe12f")
 
 [node name="StaticObject_2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
@@ -140,7 +146,7 @@ transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, 1.65784,
 mesh = SubResource("BoxMesh_06t4h")
 
 [node name="MainDirectLight_2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410337, 0.220595, -0.400228, 0.889469, -4.96381, 8.77044, 14.7144)
+transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410336, 0.220595, -0.400228, 0.889469, -3.948, 9.93543, 12.3762)
 light_energy = 0.01
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
