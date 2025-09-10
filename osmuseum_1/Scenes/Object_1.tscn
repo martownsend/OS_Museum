@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwt557th2kbnl"]
+
+[sub_resource type="Environment" id="Environment_sx2hw"]
+background_mode = 1
+background_color = Color(0.855329, 0.869258, 0.809648, 1)
+
+[node name="Object1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sx2hw")
