@@ -1,0 +1,146 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjxh8ksvueqsd"]
+
+[ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_06t4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06t4h"]
+albedo_texture = ExtResource("1_06t4h")
+
+[sub_resource type="Environment" id="Environment_rhts7"]
+background_mode = 1
+background_color = Color(0.712856, 0.675258, 0.549858, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhts7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_06t4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glbon"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06t4h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vrkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu7sn"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlkkf"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vrkn"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix8l"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="StaticFloor" type="StaticBody3D" parent="."]
+
+[node name="CollFloor" type="CollisionShape3D" parent="StaticFloor"]
+shape = SubResource("WorldBoundaryShape3D_rhts7")
+
+[node name="MeshFloor" type="MeshInstance3D" parent="StaticFloor/CollFloor"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 4.82603)
+mesh = SubResource("PlaneMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_06t4h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rhts7")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, 0.0874419, 4.69831, 3.80068)
+
+[node name="StaticVitrine_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollVitrine_1" type="CollisionShape3D" parent="StaticVitrine_1"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshVitrine_1" type="MeshInstance3D" parent="StaticVitrine_1/CollVitrine_1"]
+transform = Transform3D(1.28838, 0, 0, 0, 4.14943, 0, 0, 0, 1, -1.34385, 0, 0)
+mesh = SubResource("BoxMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_glbon")
+
+[node name="MainDirectLight_1" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.972521, -0.0955335, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, 2.28413, 6.78458, 15.9323)
+light_energy = 0.111
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 1.222
+
+[node name="StaticWall_Back" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Back" type="CollisionShape3D" parent="StaticWall_Back"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Back" type="MeshInstance3D" parent="StaticWall_Back/CollWall_Back"]
+transform = Transform3D(19.9657, 0, 0, 0, 14.3688, 0, 0, 0, 0.305093, 0, 6.94111, -4.61537)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_fu7sn")
+
+[node name="StaticVitrine_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollVitrine_2" type="CollisionShape3D" parent="StaticVitrine_2"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshVitrine_2" type="MeshInstance3D" parent="StaticVitrine_2/CollVitrine_2"]
+transform = Transform3D(1.28838, 0, 0, 0, 4.14943, 0, 0, 0, 1, 1.66349, 0, 0)
+mesh = SubResource("BoxMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_nlkkf")
+
+[node name="StaticWall_Right" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Right" type="CollisionShape3D" parent="StaticWall_Right"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Right" type="MeshInstance3D" parent="StaticWall_Right/CollWall_Right"]
+transform = Transform3D(-8.72727e-07, 0, 0.305093, 0, 14.1716, 0, -19.9657, 0, -1.3336e-08, 10.1819, 6.99514, 5.0568)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_7vrkn")
+
+[node name="StaticWall_Left" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Left" type="CollisionShape3D" parent="StaticWall_Left"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Left" type="MeshInstance3D" parent="StaticWall_Left/CollWall_Left"]
+transform = Transform3D(-8.72727e-07, 0, 0.305093, 0, 14.1616, 0, -19.9657, 0, -1.3336e-08, -10.0425, 6.99486, 5.04291)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_jix8l")
+
+[node name="StaticObject_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollObject_1" type="CollisionShape3D" parent="StaticObject_1"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshObject_1" type="MeshInstance3D" parent="StaticObject_1/CollObject_1"]
+transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, -1.34385, 2.36546, 0)
+mesh = SubResource("BoxMesh_06t4h")
+
+[node name="StaticObject_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollObject_2" type="CollisionShape3D" parent="StaticObject_2"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshObject_2" type="MeshInstance3D" parent="StaticObject_2/CollObject_2"]
+transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, 1.65784, 2.36546, 0)
+mesh = SubResource("BoxMesh_06t4h")
+
+[node name="MainDirectLight_2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410337, 0.220595, -0.400228, 0.889469, -4.95076, 8.77044, 14.715)
+light_energy = 0.01
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 1.222
