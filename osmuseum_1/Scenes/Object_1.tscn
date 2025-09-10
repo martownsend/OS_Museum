@@ -1,10 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=4 format=3 uid="uid://bwt557th2kbnl"]
+
+[ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
 
 [sub_resource type="Environment" id="Environment_sx2hw"]
 background_mode = 1
 background_color = Color(0.855329, 0.869258, 0.809648, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucupg"]
+
 [node name="Object1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sx2hw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.176527, -0.00174666, -0.984294, -0.984257, 0.00851432, -0.176536, 0.00868895, 0.999962, -0.000216147, 0, 0.195955, -0.906705)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ucupg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(14.9645, 0.000531465, 1.03142, 8.55476e-05, 15, -0.00896998, -1.03142, 0.00895463, 14.9645, 0, 0, 0)
+mesh = ExtResource("1_s8jss")
+
+[node name="Object1Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231331, 1.11268)
+fov = 65.4
+
+[node name="Object1DirLight" type="DirectionalLight3D" parent="."]
