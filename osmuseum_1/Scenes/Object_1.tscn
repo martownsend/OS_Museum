@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=11 format=3 uid="uid://bwt557th2kbnl"]
 
+[ext_resource type="Script" uid="uid://dij7o1lrkhdsd" path="res://Scenes/object_1.gd" id="1_7pmmm"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
 [ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="2_msxei"]
 [ext_resource type="Script" uid="uid://dfjq3dm18a42s" path="res://mesh_object_1_shabti.gd" id="2_ucupg"]
@@ -17,6 +18,7 @@ background_color = Color(0.855329, 0.869258, 0.809648, 1)
 albedo_texture = ExtResource("2_msxei")
 
 [node name="Object1" type="Node3D"]
+script = ExtResource("1_7pmmm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_sx2hw")
@@ -65,3 +67,4 @@ scale = Vector2(0.12, 0.12)
 texture_normal = ExtResource("4_msxei")
 
 [connection signal="pressed" from="ControlObject1/ZoomInObject1" to="Object1Camera" method="_on_zoom_in_object_1_pressed"]
+[connection signal="pressed" from="ControlObject1/ZoomOutObject1" to="Object1Camera" method="_on_zoom_out_object_1_pressed"]
