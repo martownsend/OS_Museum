@@ -86,10 +86,10 @@ script = ExtResource("9_co2nd")
 
 [node name="Esc" type="Label" parent="ControlObject1"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 585.0
-offset_right = 203.0
-offset_bottom = 608.0
+offset_left = 84.0
+offset_top = 583.0
+offset_right = 231.0
+offset_bottom = 606.0
 text = "Press \"Esc.\" to exit."
 label_settings = SubResource("LabelSettings_qn5i2")
 
