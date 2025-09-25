@@ -1,0 +1,179 @@
+[gd_scene load_steps=21 format=3 uid="uid://bjxh8ksvueqsd"]
+
+[ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://tivchck3qra8" path="res://coll_object_1.gd" id="3_fu7sn"]
+[ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="4_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="5_glbon"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_06t4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06t4h"]
+albedo_texture = ExtResource("1_06t4h")
+
+[sub_resource type="Environment" id="Environment_rhts7"]
+background_mode = 1
+background_color = Color(0.712856, 0.675258, 0.549858, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhts7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_06t4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glbon"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06t4h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7vrkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu7sn"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlkkf"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vrkn"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jix8l"]
+albedo_texture = ExtResource("2_7vrkn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe12f"]
+albedo_texture = ExtResource("5_glbon")
+
+[sub_resource type="LabelSettings" id="LabelSettings_glbon"]
+font_size = 23
+font_color = Color(0.233521, 0.162974, 0.0751451, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.0705882)
+shadow_offset = Vector2(3, 3)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="StaticFloor" type="StaticBody3D" parent="."]
+
+[node name="CollFloor" type="CollisionShape3D" parent="StaticFloor"]
+shape = SubResource("WorldBoundaryShape3D_rhts7")
+
+[node name="MeshFloor" type="MeshInstance3D" parent="StaticFloor/CollFloor"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 4.82603)
+mesh = SubResource("PlaneMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_06t4h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rhts7")
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, -0.0219558, 4.61659, 2.71587)
+
+[node name="StaticVitrine_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollVitrine_1" type="CollisionShape3D" parent="StaticVitrine_1"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshVitrine_1" type="MeshInstance3D" parent="StaticVitrine_1/CollVitrine_1"]
+transform = Transform3D(1.7368, 0, 0, 0, 4.74502, 0, 0, 0, 1.05899, -1.56874, 0, 0)
+mesh = SubResource("BoxMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_glbon")
+
+[node name="MainDirectLight_1" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.972521, -0.0955334, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, 4.73125, 0.75983, 5.65012)
+light_energy = 0.111
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 1.222
+
+[node name="StaticWall_Back" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Back" type="CollisionShape3D" parent="StaticWall_Back"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Back" type="MeshInstance3D" parent="StaticWall_Back/CollWall_Back"]
+transform = Transform3D(19.9657, 0, 0, 0, 14.3688, 0, 0, 0, 0.305093, 0, 6.94111, -4.61537)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_fu7sn")
+
+[node name="StaticVitrine_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollVitrine_2" type="CollisionShape3D" parent="StaticVitrine_2"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshVitrine_2" type="MeshInstance3D" parent="StaticVitrine_2/CollVitrine_2"]
+transform = Transform3D(1.28838, 0, 0, 0, 4.14943, 0, 0, 0, 1, 1.66349, 0, 0)
+mesh = SubResource("BoxMesh_06t4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_nlkkf")
+
+[node name="StaticWall_Right" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Right" type="CollisionShape3D" parent="StaticWall_Right"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Right" type="MeshInstance3D" parent="StaticWall_Right/CollWall_Right"]
+transform = Transform3D(-8.72727e-07, 0, 0.305093, 0, 14.1716, 0, -19.9657, 0, -1.3336e-08, 10.1819, 6.99514, 5.0568)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_7vrkn")
+
+[node name="StaticWall_Left" type="StaticBody3D" parent="."]
+
+[node name="CollWall_Left" type="CollisionShape3D" parent="StaticWall_Left"]
+shape = SubResource("BoxShape3D_06t4h")
+
+[node name="MeshWall_Left" type="MeshInstance3D" parent="StaticWall_Left/CollWall_Left"]
+transform = Transform3D(-8.72727e-07, 0, 0.305093, 0, 14.1616, 0, -19.9657, 0, -1.3336e-08, -10.0425, 6.99486, 5.04291)
+mesh = SubResource("BoxMesh_7vrkn")
+surface_material_override/0 = SubResource("StandardMaterial3D_jix8l")
+
+[node name="StaticObject_1" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.6928, 3.73505, -0.561394)
+
+[node name="CollObject_1" type="CollisionShape3D" parent="StaticObject_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.097563, 0)
+shape = SubResource("BoxShape3D_rhts7")
+script = ExtResource("3_fu7sn")
+
+[node name="MeshObject_1" type="MeshInstance3D" parent="StaticObject_1/CollObject_1"]
+transform = Transform3D(1.4972, -0.124195, -6.83688, -6.83505, 0.178926, -1.50004, 0.201371, 6.99661, -0.0829987, 0.0866711, -0.140373, 0)
+mesh = ExtResource("4_jix8l")
+surface_material_override/0 = SubResource("StandardMaterial3D_qe12f")
+
+[node name="StaticObject_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+
+[node name="CollObject_2" type="CollisionShape3D" parent="StaticObject_2"]
+shape = SubResource("BoxShape3D_rhts7")
+
+[node name="MeshObject_2" type="MeshInstance3D" parent="StaticObject_2/CollObject_2"]
+transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, 1.65784, 2.36546, 0)
+mesh = SubResource("BoxMesh_06t4h")
+
+[node name="MainDirectLight_2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410336, 0.220595, -0.400228, 0.889469, -3.948, 9.93543, 12.3762)
+light_energy = 0.01
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.83
+shadow_blur = 1.222
+
+[node name="ControlUI_Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ControlUI_Main"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 117.0
+offset_right = 889.0
+offset_bottom = 149.0
+text = "Click on an object to take a closer look!"
+label_settings = SubResource("LabelSettings_glbon")
+
+[connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
