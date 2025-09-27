@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=17 format=3 uid="uid://bwt557th2kbnl"]
 
 [ext_resource type="Script" uid="uid://dij7o1lrkhdsd" path="res://Scenes/object_1.gd" id="1_7pmmm"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
@@ -10,10 +10,12 @@
 [ext_resource type="Script" uid="uid://dtfe4dey7lsya" path="res://Scenes/control_object_1.gd" id="6_qn5i2"]
 [ext_resource type="Texture2D" uid="uid://uxber68eydpd" path="res://Textures/ExitBack.png" id="8_yus3v"]
 [ext_resource type="Script" uid="uid://c7we7k7pmkbtx" path="res://Scenes/exit_sign_object_1.gd" id="9_co2nd"]
+[ext_resource type="Script" uid="uid://870gl77ds4mi" path="res://Scenes/shabti_window.gd" id="11_4tgwb"]
+[ext_resource type="Texture2D" uid="uid://jpuv510iat4r" path="res://Textures/Ushabti.png" id="12_6h25e"]
 
 [sub_resource type="Environment" id="Environment_sx2hw"]
 background_mode = 1
-background_color = Color(0.855329, 0.869258, 0.809648, 1)
+background_color = Color(0.626823, 0.37499, 0.26621, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucupg"]
 
@@ -21,7 +23,7 @@ background_color = Color(0.855329, 0.869258, 0.809648, 1)
 albedo_texture = ExtResource("2_msxei")
 
 [sub_resource type="LabelSettings" id="LabelSettings_qn5i2"]
-font_color = Color(0.127106, 0.251031, 0.236779, 1)
+font_color = Color(0, 0, 0, 1)
 
 [node name="Object1" type="Node3D"]
 script = ExtResource("1_7pmmm")
@@ -93,6 +95,20 @@ offset_bottom = 606.0
 text = "Press \"Esc.\" to exit."
 label_settings = SubResource("LabelSettings_qn5i2")
 
+[node name="Shabti" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(500, 500)
+script = ExtResource("11_4tgwb")
+
+[node name="Camera2D" type="Camera2D" parent="Shabti"]
+position = Vector2(255, 233)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shabti/Camera2D"]
+position = Vector2(0, 85)
+scale = Vector2(0.480004, 0.480004)
+texture = ExtResource("12_6h25e")
+
 [connection signal="pressed" from="ControlObject1/ZoomInObject1" to="Object1Camera" method="_on_zoom_in_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ZoomOutObject1" to="Object1Camera" method="_on_zoom_out_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ExitSignObject1" to="ControlObject1" method="_on_exit_sign_object_1_pressed"]
+[connection signal="close_requested" from="Shabti" to="Shabti" method="_on_close_requested"]

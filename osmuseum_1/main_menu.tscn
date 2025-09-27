@@ -1,10 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjxh8ksvueqsd"]
+[gd_scene load_steps=23 format=3 uid="uid://bjxh8ksvueqsd"]
 
 [ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://tivchck3qra8" path="res://coll_object_1.gd" id="3_fu7sn"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="5_glbon"]
+[ext_resource type="Texture2D" uid="uid://buh8cr5nse3ix" path="res://Textures/WelcomeTest.png" id="6_nlkkf"]
+[ext_resource type="Script" uid="uid://cv7g0rg55tl8x" path="res://welcome.gd" id="6_qe12f"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
 
@@ -168,6 +170,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="ControlUI_Main"]
+visible = false
 layout_mode = 0
 offset_left = 459.0
 offset_top = 117.0
@@ -176,4 +179,19 @@ offset_bottom = 149.0
 text = "Click on an object to take a closer look!"
 label_settings = SubResource("LabelSettings_glbon")
 
+[node name="Welcome" type="Window" parent="."]
+title = "Welcome!"
+initial_position = 1
+size = Vector2i(600, 600)
+script = ExtResource("6_qe12f")
+
+[node name="Camera2D" type="Camera2D" parent="Welcome"]
+position = Vector2(291, 319)
+
+[node name="Sprite2D" type="Sprite2D" parent="Welcome/Camera2D"]
+position = Vector2(5.00001, 22)
+scale = Vector2(0.55174, 0.55174)
+texture = ExtResource("6_nlkkf")
+
 [connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
+[connection signal="close_requested" from="Welcome" to="Welcome" method="_on_close_requested"]
