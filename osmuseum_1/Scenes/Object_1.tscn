@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=19 format=3 uid="uid://bwt557th2kbnl"]
 
 [ext_resource type="Script" uid="uid://dij7o1lrkhdsd" path="res://Scenes/object_1.gd" id="1_7pmmm"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://c7we7k7pmkbtx" path="res://Scenes/exit_sign_object_1.gd" id="9_co2nd"]
 [ext_resource type="Script" uid="uid://870gl77ds4mi" path="res://Scenes/shabti_window.gd" id="11_4tgwb"]
 [ext_resource type="Texture2D" uid="uid://jpuv510iat4r" path="res://Textures/Ushabti.png" id="12_6h25e"]
+[ext_resource type="Script" uid="uid://bn3k7s0ewkmfs" path="res://Scenes/shabti_fact_1.gd" id="13_0wtgg"]
+[ext_resource type="Texture2D" uid="uid://wo7bol1xw014" path="res://Textures/WhatIsAnUshabti.png" id="14_osjmu"]
 
 [sub_resource type="Environment" id="Environment_sx2hw"]
 background_mode = 1
@@ -95,20 +97,45 @@ offset_bottom = 606.0
 text = "Press \"Esc.\" to exit."
 label_settings = SubResource("LabelSettings_qn5i2")
 
+[node name="Shabti_Button" type="Button" parent="ControlObject1"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 145.0
+offset_right = 472.0
+offset_bottom = 176.0
+text = "CLickClick"
+
 [node name="Shabti" type="Window" parent="."]
 initial_position = 1
 size = Vector2i(500, 500)
+visible = false
 script = ExtResource("11_4tgwb")
 
-[node name="Camera2D" type="Camera2D" parent="Shabti"]
+[node name="Camera2D1" type="Camera2D" parent="Shabti"]
 position = Vector2(249, 257)
 
-[node name="Sprite2D" type="Sprite2D" parent="Shabti/Camera2D"]
+[node name="Sprite2D1" type="Sprite2D" parent="Shabti/Camera2D1"]
 position = Vector2(-3, 60)
 scale = Vector2(0.480004, 0.480004)
 texture = ExtResource("12_6h25e")
 
+[node name="Shabti_Fact1" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(500, 500)
+visible = false
+script = ExtResource("13_0wtgg")
+
+[node name="Camera2D2" type="Camera2D" parent="Shabti_Fact1"]
+position = Vector2(250, 255)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shabti_Fact1/Camera2D2"]
+position = Vector2(-1, 66)
+scale = Vector2(0.480002, 0.480002)
+texture = ExtResource("14_osjmu")
+
 [connection signal="pressed" from="ControlObject1/ZoomInObject1" to="Object1Camera" method="_on_zoom_in_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ZoomOutObject1" to="Object1Camera" method="_on_zoom_out_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ExitSignObject1" to="ControlObject1" method="_on_exit_sign_object_1_pressed"]
+[connection signal="pressed" from="ControlObject1/Shabti_Button" to="Shabti_Fact1" method="_on_shabti_button_pressed"]
 [connection signal="close_requested" from="Shabti" to="Shabti" method="_on_close_requested"]
+[connection signal="close_requested" from="Shabti_Fact1" to="Shabti_Fact1" method="_on_close_requested"]
