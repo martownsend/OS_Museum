@@ -182,15 +182,15 @@ label_settings = SubResource("LabelSettings_glbon")
 [node name="Welcome" type="Window" parent="."]
 title = "Welcome!"
 initial_position = 1
-size = Vector2i(600, 600)
+size = Vector2i(500, 500)
 script = ExtResource("6_qe12f")
 
 [node name="Camera2D" type="Camera2D" parent="Welcome"]
-position = Vector2(291, 319)
+position = Vector2(253, 230)
 
 [node name="Sprite2D" type="Sprite2D" parent="Welcome/Camera2D"]
-position = Vector2(5.00001, 22)
-scale = Vector2(0.55174, 0.55174)
+position = Vector2(1.00001, 66)
+scale = Vector2(0.47174, 0.47174)
 texture = ExtResource("6_nlkkf")
 
 [connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
