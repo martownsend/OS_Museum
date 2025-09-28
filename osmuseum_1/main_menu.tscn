@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjxh8ksvueqsd"]
+[gd_scene load_steps=24 format=3 uid="uid://bjxh8ksvueqsd"]
 
 [ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="5_glbon"]
 [ext_resource type="Texture2D" uid="uid://buh8cr5nse3ix" path="res://Textures/WelcomeTest.png" id="6_nlkkf"]
 [ext_resource type="Script" uid="uid://cv7g0rg55tl8x" path="res://welcome.gd" id="6_qe12f"]
+[ext_resource type="Script" uid="uid://b6f1lml7u4ifj" path="res://welcome_sprite.gd" id="7_8qtwp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
 
@@ -179,10 +180,25 @@ offset_bottom = 149.0
 text = "Click on an object to take a closer look!"
 label_settings = SubResource("LabelSettings_glbon")
 
+[node name="Welcome_Sprite" type="Sprite2D" parent="ControlUI_Main"]
+position = Vector2(549, 321)
+scale = Vector2(0.359998, 0.359998)
+texture = ExtResource("6_nlkkf")
+script = ExtResource("7_8qtwp")
+
+[node name="Welcome_Button_Close" type="Button" parent="ControlUI_Main/Welcome_Sprite"]
+offset_left = -75.0005
+offset_top = 416.669
+offset_right = -25.0005
+offset_bottom = 447.669
+scale = Vector2(3.55558, 3.55558)
+text = "Close"
+
 [node name="Welcome" type="Window" parent="."]
 title = "Welcome!"
 initial_position = 1
 size = Vector2i(500, 500)
+visible = false
 script = ExtResource("6_qe12f")
 
 [node name="Camera2D" type="Camera2D" parent="Welcome"]
@@ -194,4 +210,5 @@ scale = Vector2(0.47174, 0.47174)
 texture = ExtResource("6_nlkkf")
 
 [connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
+[connection signal="pressed" from="ControlUI_Main/Welcome_Sprite/Welcome_Button_Close" to="ControlUI_Main/Welcome_Sprite" method="_on_welcome_button_close_pressed"]
 [connection signal="close_requested" from="Welcome" to="Welcome" method="_on_close_requested"]

@@ -95,6 +95,7 @@ texture_normal = ExtResource("8_yus3v")
 script = ExtResource("9_co2nd")
 
 [node name="Esc" type="Label" parent="ControlObject1"]
+visible = false
 layout_mode = 0
 offset_left = 84.0
 offset_top = 583.0
@@ -129,6 +130,7 @@ text = "Close"
 [node name="Shabti" type="Window" parent="."]
 initial_position = 1
 size = Vector2i(500, 500)
+visible = false
 script = ExtResource("11_4tgwb")
 
 [node name="Camera2D1" type="Camera2D" parent="Shabti"]
@@ -154,7 +156,7 @@ scale = Vector2(0.480002, 0.480002)
 texture = ExtResource("14_osjmu")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.3241, 0.79448, -0.169921)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.2832, 0.344104, -0.0189509)
 visible = false
 script = ExtResource("15_osjmu")
 
