@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=25 format=3 uid="uid://bwt557th2kbnl"]
 
 [ext_resource type="Script" uid="uid://dij7o1lrkhdsd" path="res://Scenes/object_1.gd" id="1_7pmmm"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://uxber68eydpd" path="res://Textures/ExitBack.png" id="8_yus3v"]
 [ext_resource type="Script" uid="uid://c7we7k7pmkbtx" path="res://Scenes/exit_sign_object_1.gd" id="9_co2nd"]
 [ext_resource type="Script" uid="uid://870gl77ds4mi" path="res://Scenes/shabti_window.gd" id="11_4tgwb"]
+[ext_resource type="Texture2D" uid="uid://f1skv7ehp3v1" path="res://Textures/TestInfo.png" id="11_eec2t"]
 [ext_resource type="Texture2D" uid="uid://jpuv510iat4r" path="res://Textures/Ushabti.png" id="12_6h25e"]
+[ext_resource type="Script" uid="uid://bb4bkkr33hpn0" path="res://Scenes/shabti_info_2.gd" id="12_46rwg"]
 [ext_resource type="Script" uid="uid://bdyvqawyw1lul" path="res://Scenes/shabti_label_test.gd" id="12_emsfw"]
 [ext_resource type="Script" uid="uid://bn3k7s0ewkmfs" path="res://Scenes/shabti_fact_1.gd" id="13_0wtgg"]
 [ext_resource type="Texture2D" uid="uid://wo7bol1xw014" path="res://Textures/WhatIsAnUshabti.png" id="14_osjmu"]
@@ -104,13 +106,36 @@ offset_bottom = 606.0
 text = "Press \"Esc.\" to exit."
 label_settings = SubResource("LabelSettings_qn5i2")
 
+[node name="Shabti_Info" type="Button" parent="ControlObject1"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 263.0
+offset_right = 251.0
+offset_bottom = 294.0
+text = "Object Information"
+
 [node name="Shabti_Button" type="Button" parent="ControlObject1"]
 layout_mode = 0
-offset_left = 385.0
-offset_top = 139.0
-offset_right = 483.0
-offset_bottom = 170.0
-text = "Test Button"
+offset_left = 94.0
+offset_top = 191.0
+offset_right = 250.0
+offset_bottom = 222.0
+text = "Object Background"
+
+[node name="Shabti_Info2" type="Sprite2D" parent="ControlObject1"]
+visible = false
+position = Vector2(199, 294)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("11_eec2t")
+script = ExtResource("12_46rwg")
+
+[node name="Info_Exit_Test" type="Button" parent="ControlObject1/Shabti_Info2"]
+offset_left = -42.8571
+offset_top = 496.429
+offset_right = 7.14286
+offset_bottom = 527.429
+scale = Vector2(2.42857, 2.42857)
+text = "Close"
 
 [node name="Shabti_Label_Test" type="Sprite2D" parent="ControlObject1"]
 visible = false
@@ -120,9 +145,9 @@ texture = ExtResource("14_osjmu")
 script = ExtResource("12_emsfw")
 
 [node name="Shabti_Exit_Test" type="Button" parent="ControlObject1/Shabti_Label_Test"]
-offset_left = -164.286
+offset_left = -82.1428
 offset_top = 285.714
-offset_right = -114.286
+offset_right = -32.1428
 offset_bottom = 316.714
 scale = Vector2(3, 3)
 text = "Close"
@@ -170,7 +195,9 @@ mesh = SubResource("SphereMesh_osjmu")
 [connection signal="pressed" from="ControlObject1/ZoomInObject1" to="Object1Camera" method="_on_zoom_in_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ZoomOutObject1" to="Object1Camera" method="_on_zoom_out_object_1_pressed"]
 [connection signal="pressed" from="ControlObject1/ExitSignObject1" to="ControlObject1" method="_on_exit_sign_object_1_pressed"]
+[connection signal="pressed" from="ControlObject1/Shabti_Info" to="ControlObject1/Shabti_Info2" method="_on_shabti_info_pressed"]
 [connection signal="pressed" from="ControlObject1/Shabti_Button" to="ControlObject1/Shabti_Label_Test" method="_on_shabti_button_pressed"]
+[connection signal="pressed" from="ControlObject1/Shabti_Info2/Info_Exit_Test" to="ControlObject1/Shabti_Info2" method="_on_info_exit_test_pressed"]
 [connection signal="pressed" from="ControlObject1/Shabti_Label_Test/Shabti_Exit_Test" to="ControlObject1/Shabti_Label_Test" method="_on_shabti_exit_test_pressed"]
 [connection signal="close_requested" from="Shabti" to="Shabti" method="_on_close_requested"]
 [connection signal="close_requested" from="Shabti_Fact1" to="Shabti_Fact1" method="_on_close_requested"]
