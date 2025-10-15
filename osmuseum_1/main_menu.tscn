@@ -187,9 +187,9 @@ texture = ExtResource("6_nlkkf")
 script = ExtResource("7_8qtwp")
 
 [node name="Welcome_Button_Close" type="Button" parent="ControlUI_Main/Welcome_Sprite"]
-offset_left = 52.778
+offset_left = -91.6671
 offset_top = 416.669
-offset_right = 102.778
+offset_right = -41.6671
 offset_bottom = 447.669
 scale = Vector2(3.55558, 3.55558)
 text = "Close"
