@@ -18,10 +18,13 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06t4h"]
 albedo_texture = ExtResource("1_06t4h")
+clearcoat_roughness = 1.0
 
-[sub_resource type="Environment" id="Environment_rhts7"]
-background_mode = 1
-background_color = Color(0.712856, 0.675258, 0.549858, 1)
+[sub_resource type="Environment" id="Environment_0k4wn"]
+background_mode = 2
+ambient_light_color = Color(0.311601, 0.30005, 0.234731, 1)
+ambient_light_energy = 1.48
+reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhts7"]
 
@@ -72,10 +75,11 @@ mesh = SubResource("PlaneMesh_06t4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_06t4h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rhts7")
+environment = SubResource("Environment_0k4wn")
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, -0.0219558, 4.61659, 2.71587)
+transform = Transform3D(1, 0, 0, 0, 0.907616, 0.419801, 0, -0.419801, 0.907616, -0.0219558, 5.61659, 3.71587)
+keep_aspect = 0
 
 [node name="StaticVitrine_1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
@@ -89,13 +93,15 @@ mesh = SubResource("BoxMesh_06t4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_glbon")
 
 [node name="MainDirectLight_1" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.972521, -0.0955334, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, 4.73125, 0.75983, 5.65012)
+transform = Transform3D(0.972521, -0.0955334, 0.212314, 2.27322e-08, 0.911934, 0.410337, -0.232817, -0.399061, 0.886875, -5.23662, 21.9303, 15.996)
 light_energy = 0.111
+light_indirect_energy = 0.354
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.83
 shadow_blur = 1.222
+sky_mode = 1
 
 [node name="StaticWall_Back" type="StaticBody3D" parent="."]
 
@@ -147,7 +153,7 @@ shape = SubResource("BoxShape3D_rhts7")
 script = ExtResource("3_fu7sn")
 
 [node name="MeshObject_1" type="MeshInstance3D" parent="StaticObject_1/CollObject_1"]
-transform = Transform3D(1.4972, -0.124195, -6.83688, -6.83505, 0.178926, -1.50004, 0.201371, 6.99661, -0.0829987, 0.0866711, -0.140373, 0)
+transform = Transform3D(1.06943, -0.0887107, -4.88349, -4.88217, 0.127804, -1.07146, 0.143836, 4.99758, -0.0592848, 0.0866711, -0.236831, 0)
 mesh = ExtResource("4_jix8l")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe12f")
 
@@ -165,13 +171,14 @@ mesh = ExtResource("6_0o4t1")
 surface_material_override/0 = SubResource("StandardMaterial3D_j5v2v")
 
 [node name="MainDirectLight_2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410336, 0.220595, -0.400228, 0.889469, -3.948, 9.93543, 12.3762)
+transform = Transform3D(-0.975366, -0.0905181, 0.201168, 0.0867034, -0.995849, -0.0277127, 0.202841, -0.00958808, 0.979165, 2.75273, 11.9742, 12.7697)
 light_energy = 0.01
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.83
 shadow_blur = 1.222
+sky_mode = 1
 
 [node name="ControlUI_Main" type="Control" parent="."]
 layout_mode = 3

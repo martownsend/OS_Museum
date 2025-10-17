@@ -27,6 +27,7 @@ background_color = Color(0.626823, 0.37499, 0.26621, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jbku"]
 albedo_texture = ExtResource("2_msxei")
+clearcoat_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_qn5i2"]
 font_color = Color(0, 0, 0, 1)

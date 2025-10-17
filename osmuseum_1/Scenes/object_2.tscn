@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci8t8si7xlhcc"]
+[gd_scene load_steps=11 format=3 uid="uid://ci8t8si7xlhcc"]
 
 [ext_resource type="ArrayMesh" uid="uid://c1xbthf0thneg" path="res://Assets/Alex_shabtibox.obj" id="1_suiii"]
 [ext_resource type="Script" uid="uid://bjj61s77cy70q" path="res://Scenes/node_object_2.gd" id="1_ypnge"]
 [ext_resource type="Texture2D" uid="uid://dmhw0xtqnqfuu" path="res://Textures/shabti box/Alex_shabtiboxtexture.png" id="2_pb8j0"]
 [ext_resource type="Script" uid="uid://dfjq3dm18a42s" path="res://mesh_object_1_shabti.gd" id="3_ypnge"]
+[ext_resource type="Texture2D" uid="uid://fm3c3wb03dvg" path="res://Textures/shabti box/d88de43d861e3f0519b552438f20ebd5.jpg" id="4_fcluu"]
 [ext_resource type="Script" uid="uid://b4uqdx5qqters" path="res://Scenes/object_1_camera.gd" id="4_pb8j0"]
 [ext_resource type="Script" uid="uid://cfe6khs2uwfi1" path="res://Scenes/control_object_2.gd" id="6_fm8rj"]
 
@@ -15,6 +16,10 @@ background_color = Color(0.626823, 0.37499, 0.26621, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qebat"]
 albedo_texture = ExtResource("2_pb8j0")
+roughness_texture = ExtResource("4_fcluu")
+ao_enabled = true
+ao_light_affect = 0.14
+refraction_scale = 0.37
 
 [node name="Object_2" type="Node3D"]
 script = ExtResource("1_ypnge")
