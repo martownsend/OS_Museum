@@ -1,12 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjxh8ksvueqsd"]
+[gd_scene load_steps=28 format=3 uid="uid://bjxh8ksvueqsd"]
 
 [ext_resource type="Texture2D" uid="uid://djxp1gp37nyi3" path="res://Textures/TextureWoodFloor_Pale.png" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://mblvowc0ww0n" path="res://Textures/TextureSmoothWall.png" id="2_7vrkn"]
 [ext_resource type="Script" uid="uid://tivchck3qra8" path="res://coll_object_1.gd" id="3_fu7sn"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="4_jix8l"]
 [ext_resource type="Texture2D" uid="uid://dg7c1ge4fpex2" path="res://Textures/shabti/f2a4e098f5c0096353ee6df3d565bc69.jpg" id="5_glbon"]
+[ext_resource type="Script" uid="uid://cewhdodnibanj" path="res://coll_object_2.gd" id="6_0k4wn"]
+[ext_resource type="ArrayMesh" uid="uid://c1xbthf0thneg" path="res://Assets/Alex_shabtibox.obj" id="6_0o4t1"]
 [ext_resource type="Texture2D" uid="uid://buh8cr5nse3ix" path="res://Textures/WelcomeTest.png" id="6_nlkkf"]
 [ext_resource type="Script" uid="uid://cv7g0rg55tl8x" path="res://welcome.gd" id="6_qe12f"]
+[ext_resource type="Texture2D" uid="uid://dmhw0xtqnqfuu" path="res://Textures/shabti box/Alex_shabtiboxtexture.png" id="7_0k4wn"]
 [ext_resource type="Script" uid="uid://b6f1lml7u4ifj" path="res://welcome_sprite.gd" id="7_8qtwp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rhts7"]
@@ -45,6 +48,9 @@ albedo_texture = ExtResource("2_7vrkn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe12f"]
 albedo_texture = ExtResource("5_glbon")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5v2v"]
+albedo_texture = ExtResource("7_0k4wn")
 
 [sub_resource type="LabelSettings" id="LabelSettings_glbon"]
 font_size = 23
@@ -108,7 +114,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033
 shape = SubResource("BoxShape3D_rhts7")
 
 [node name="MeshVitrine_2" type="MeshInstance3D" parent="StaticVitrine_2/CollVitrine_2"]
-transform = Transform3D(1.28838, 0, 0, 0, 4.14943, 0, 0, 0, 1, 1.66349, 0, 0)
+transform = Transform3D(2.51746, 0, 0, 0, 4.32682, 0, 0, 0, 1.37767, 1.66349, 0, -0.165666)
 mesh = SubResource("BoxMesh_06t4h")
 surface_material_override/0 = SubResource("StandardMaterial3D_nlkkf")
 
@@ -146,14 +152,17 @@ mesh = ExtResource("4_jix8l")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe12f")
 
 [node name="StaticObject_2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 0.607377, -0.449033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010649, 2.73985, -1.74516)
 
 [node name="CollObject_2" type="CollisionShape3D" parent="StaticObject_2"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 1.65784, 1.18682, 1.77366)
 shape = SubResource("BoxShape3D_rhts7")
+script = ExtResource("6_0k4wn")
 
 [node name="MeshObject_2" type="MeshInstance3D" parent="StaticObject_2/CollObject_2"]
-transform = Transform3D(0.782288, 0, 0, 0, 0.565021, 0, 0, 0, 0.453756, 1.65784, 2.36546, 0)
-mesh = SubResource("BoxMesh_06t4h")
+transform = Transform3D(-0.0148669, 0, -0.115679, 0, 0.145, 0, 0.199447, 0, -0.00862283, -0.00380462, -0.481195, -0.225774)
+mesh = ExtResource("6_0o4t1")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5v2v")
 
 [node name="MainDirectLight_2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.975366, 0.0905181, -0.201168, 1.54864e-08, 0.911934, 0.410336, 0.220595, -0.400228, 0.889469, -3.948, 9.93543, 12.3762)
@@ -210,5 +219,6 @@ scale = Vector2(0.47174, 0.47174)
 texture = ExtResource("6_nlkkf")
 
 [connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
+[connection signal="input_event" from="StaticObject_2" to="StaticObject_2/CollObject_2" method="_on_static_object_2_input_event"]
 [connection signal="pressed" from="ControlUI_Main/Welcome_Sprite/Welcome_Button_Close" to="ControlUI_Main/Welcome_Sprite" method="_on_welcome_button_close_pressed"]
 [connection signal="close_requested" from="Welcome" to="Welcome" method="_on_close_requested"]
