@@ -256,13 +256,15 @@ shadow_blur = 1.04
 distance_fade_length = 1313.27
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.753023, 4.50988, 3.32363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.753023, 6.8055, -0.16025)
 light_size = 0.359
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_opacity = 0.83
 shadow_blur = 5.663
 distance_fade_length = 1313.27
+omni_range = 6.997
+omni_attenuation = 2.2
 
 [connection signal="input_event" from="StaticObject_1" to="StaticObject_1/CollObject_1" method="_on_static_object_1_input_event"]
 [connection signal="input_event" from="StaticObject_2" to="StaticObject_2/CollObject_2" method="_on_static_object_2_input_event"]

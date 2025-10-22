@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fm3c3wb03dvg"
 path.s3tc="res://.godot/imported/d88de43d861e3f0519b552438f20ebd5.jpg-3bf8fd0c707b90aba790ba64890860a8.s3tc.ctex"
+path.etc2="res://.godot/imported/d88de43d861e3f0519b552438f20ebd5.jpg-3bf8fd0c707b90aba790ba64890860a8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Textures/shabti box/d88de43d861e3f0519b552438f20ebd5.jpg"
-dest_files=["res://.godot/imported/d88de43d861e3f0519b552438f20ebd5.jpg-3bf8fd0c707b90aba790ba64890860a8.s3tc.ctex"]
+dest_files=["res://.godot/imported/d88de43d861e3f0519b552438f20ebd5.jpg-3bf8fd0c707b90aba790ba64890860a8.s3tc.ctex", "res://.godot/imported/d88de43d861e3f0519b552438f20ebd5.jpg-3bf8fd0c707b90aba790ba64890860a8.etc2.ctex"]
 
 [params]
 
