@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ci8t8si7xlhcc"]
+[gd_scene load_steps=16 format=3 uid="uid://ci8t8si7xlhcc"]
 
 [ext_resource type="ArrayMesh" uid="uid://c1xbthf0thneg" path="res://Assets/Alex_shabtibox.obj" id="1_suiii"]
 [ext_resource type="Script" uid="uid://bjj61s77cy70q" path="res://Scenes/node_object_2.gd" id="1_ypnge"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://fm3c3wb03dvg" path="res://Textures/shabti box/d88de43d861e3f0519b552438f20ebd5.jpg" id="4_fcluu"]
 [ext_resource type="Script" uid="uid://b4uqdx5qqters" path="res://Scenes/object_1_camera.gd" id="4_pb8j0"]
 [ext_resource type="Script" uid="uid://cfe6khs2uwfi1" path="res://Scenes/control_object_2.gd" id="6_fm8rj"]
-[ext_resource type="Script" uid="uid://drx5k5lmn27ig" path="res://Scenes/coll_select_hiero.gd" id="6_tcmqg"]
-[ext_resource type="Script" uid="uid://c8u5r4v1vqke6" path="res://Scenes/static_select_hiero.gd" id="6_vegdw"]
 [ext_resource type="Texture2D" uid="uid://k5uxuneesfco" path="res://Textures/tomb.jpg" id="8_qebat"]
 [ext_resource type="Script" uid="uid://c1fiyt05pjhhp" path="res://Scenes/label_hiero.gd" id="9_awn66"]
 
@@ -60,16 +58,26 @@ script = ExtResource("3_ypnge")
 
 [node name="StaticSelect_Hiero" type="StaticBody3D" parent="StaticObject2_Box/CollObject2_Box/MeshObject2_Shabti"]
 transform = Transform3D(-0.000456947, 0.0014442, 0.049977, 0.000860457, 0.049972, -0.00143618, -0.0499905, 0.000846937, -0.000481545, 0.342133, 1.34701, 0.543029)
-script = ExtResource("6_vegdw")
+visible = false
 
 [node name="CollSelect_Hiero" type="CollisionShape3D" parent="StaticObject2_Box/CollObject2_Box/MeshObject2_Shabti/StaticSelect_Hiero"]
 transform = Transform3D(0.706108, -0.00698664, -3.93718, -3.93703, 0.0340573, -0.706144, 0.0347558, 3.99985, -0.00086459, 5.05519, 52.9514, 0.276931)
 shape = SubResource("SphereShape3D_tcmqg")
-script = ExtResource("6_tcmqg")
 
 [node name="MeshSelect_Hiero" type="MeshInstance3D" parent="StaticObject2_Box/CollObject2_Box/MeshObject2_Shabti/StaticSelect_Hiero/CollSelect_Hiero"]
 transform = Transform3D(1.5, -1.39698e-09, -6.48944e-08, 1.39698e-09, 1.5, 5.02041e-10, 6.48944e-08, -5.02041e-10, 1.5, 0.183632, 2.19727, -0.917811)
 mesh = SubResource("SphereMesh_awn66")
+
+[node name="Label_Hiero" type="Label" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 109.0
+offset_right = 194.0
+offset_bottom = 184.0
+text = "Hieroglyph
+
+Test Information"
+script = ExtResource("9_awn66")
 
 [node name="Object2Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 37.2322, 86.3347)
@@ -88,14 +96,3 @@ script = ExtResource("6_fm8rj")
 [node name="tomb" type="Sprite3D" parent="."]
 transform = Transform3D(23.7224, 0, 0, 0, 28.3871, 0, 0, 0, 2.48243, 21.4532, 0, -320)
 texture = ExtResource("8_qebat")
-
-[node name="Label_Hiero" type="Label" parent="."]
-visible = false
-offset_left = 64.0
-offset_top = 109.0
-offset_right = 194.0
-offset_bottom = 184.0
-text = "Hieroglyph
-
-Test Information"
-script = ExtResource("9_awn66")
