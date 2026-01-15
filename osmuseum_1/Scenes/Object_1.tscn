@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bwt557th2kbnl"]
+[gd_scene load_steps=27 format=3 uid="uid://bwt557th2kbnl"]
 
 [ext_resource type="Script" uid="uid://dij7o1lrkhdsd" path="res://Scenes/object_1.gd" id="1_7pmmm"]
 [ext_resource type="ArrayMesh" uid="uid://6h8d0fwtl0gh" path="res://Assets/Shabti - San Francisco State Global Museum.obj" id="1_s8jss"]
@@ -33,6 +33,8 @@ clearcoat_enabled = true
 clearcoat = 0.46
 clearcoat_roughness = 0.11
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_46rwg"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_qn5i2"]
 font_color = Color(0, 0, 0, 1)
 
@@ -57,6 +59,14 @@ transform = Transform3D(14.9645, 0.000531465, 1.03142, 8.55476e-05, 15, -0.00896
 mesh = ExtResource("1_s8jss")
 surface_material_override/0 = SubResource("StandardMaterial3D_5jbku")
 script = ExtResource("2_ucupg")
+
+[node name="Buttons" type="Node3D" parent="StaticObject1_Shabti/CollObject1_Shabti/MeshObject1_Shabti"]
+
+[node name="Area3D" type="Area3D" parent="StaticObject1_Shabti/CollObject1_Shabti/MeshObject1_Shabti/Buttons"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticObject1_Shabti/CollObject1_Shabti/MeshObject1_Shabti/Buttons/Area3D"]
+shape = SubResource("SphereShape3D_46rwg")
+debug_color = Color(1, 0.188476, 0.69449, 0.42)
 
 [node name="Object1Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231331, 1.11268)
@@ -91,7 +101,6 @@ scale = Vector2(0.12, 0.12)
 texture_normal = ExtResource("4_msxei")
 
 [node name="ExitSignObject1" type="TextureButton" parent="ControlObject1"]
-visible = false
 layout_mode = 0
 offset_left = 87.0
 offset_top = 514.0
@@ -112,7 +121,6 @@ text = "Press \"Esc.\" to exit."
 label_settings = SubResource("LabelSettings_qn5i2")
 
 [node name="Shabti_Info" type="Button" parent="ControlObject1"]
-visible = false
 layout_mode = 0
 offset_left = 95.0
 offset_top = 263.0
@@ -121,7 +129,6 @@ offset_bottom = 294.0
 text = "Object Information"
 
 [node name="Shabti_Button" type="Button" parent="ControlObject1"]
-visible = false
 layout_mode = 0
 offset_left = 94.0
 offset_top = 191.0
@@ -199,8 +206,10 @@ shape = SubResource("SphereShape3D_emsfw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
 mesh = SubResource("SphereMesh_osjmu")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="tomb" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+transform = Transform3D(1, -1.49012e-08, 1.74623e-10, 2.98023e-08, 1, -8.22183e-10, -7.27596e-11, 4.29281e-10, 1, -7.45058e-09, -1.49012e-08, -12)
 texture = ExtResource("19_46rwg")
 
 [connection signal="pressed" from="ControlObject1/ZoomInObject1" to="Object1Camera" method="_on_zoom_in_object_1_pressed"]
